@@ -1,0 +1,12 @@
+ros2 run control_motor cpxl
+ros2 topic pub /motor_dual_position dynamixel_sdk_custom_interfaces/msg/SetPosition "{id: 1, position: 100}"
+ls /dev/ttyUSB*
+sudo chmod 777 /dev/ttyUSB*
+
+ros2 run control_motor control_dual_xl
+ros2 run control_motor Twist2Speed 
+ ros2 run teleop_twist_keyboard teleop_twist_keyboard
+ 
+ ros2 run control_motor seven
+ ros2 topic pub /motor_position_array dynamixel_sdk_custom_interfaces/msg/SetPositionArray "{position: [0, 0, 0, 0, 0, 0, 0]}"
+
